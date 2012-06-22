@@ -1,0 +1,4 @@
+A subset of the source from code.google.com/p/ascent-design-studio, this will 
+be pushed back there eventually. However, that codebase was 1) way too convoluted
+due to mulitple copies, and 2) was in SVN. So I've created this as a temporary
+way to track my changes. 
