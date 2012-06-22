@@ -16,22 +16,27 @@
 
 package org.ascent.deployment;
 
+import java.util.logging.Logger;
+
 import org.ascent.VectorSolution;
 import org.ascent.binpacking.ValueFunction;
 
 /**
- * NetMinConfig is a DeploymentConfiguration that represents a solution
- * as a packing order for components. NetMinConfig generally performs
- * much better than representing actual deployment locations.
+ * NetMinConfig is a DeploymentConfiguration that represents a solution as a
+ * packing order for components. NetMinConfig generally performs much better
+ * than representing actual deployment locations.
  * 
  * @author jules
- *
+ * 
  */
 public class NetMinConfig extends DeploymentConfig {
+	private static final Logger log = Logger.getLogger(NetMinConfig.class
+			.getName());
 
 	private ValueFunction<VectorSolution> fitnessFunction_ = new ValueFunction<VectorSolution>() {
 
 		public double getValue(VectorSolution src) {
+			log.finest("Scoring a VectorSolution");
 			if (deployer_ == null)
 				deployer_ = new OrderedDeployer(NetMinConfig.this);
 
@@ -42,15 +47,26 @@ public class NetMinConfig extends DeploymentConfig {
 			}
 			return (Integer) src.getArtifact();
 		}
+
+		private final Logger log = Logger.getLogger(NetMinConfig.class
+				.getName() + "$" + ValueFunction.class.getCanonicalName());
 	};
 
 	private OrderedDeployer deployer_;
-
-	public NetMinConfig(DeploymentConfig toclone) {
-		super(toclone);
+	
+	public NetMinConfig() {
+		super(0, 0, 0);
+		log.finer("");
 	}
 	
-	public void setComponents(Component[] components){
+	public NetMinConfig(DeploymentConfig toclone) {
+		super(toclone);
+		log.finer("");
+		
+	}
+
+	@Override
+	public void setComponents(Component[] components) {
 		components_ = components;
 		orderElements();
 	}
@@ -66,11 +82,9 @@ public class NetMinConfig extends DeploymentConfig {
 		orderElements();
 	}
 
-	public NetMinConfig() {
-		super(0, 0, 0);
-	}
-
+	@Override
 	public void init() {
+		log.finer("");
 		super.init();
 
 		boundaries_ = new int[components_.length][2];
@@ -78,15 +92,21 @@ public class NetMinConfig extends DeploymentConfig {
 			boundaries_[i] = new int[] { 0, components_.length - 1 };
 		}
 	}
-	
 
+	@Override
 	public DeploymentPlan getDeploymentPlan(VectorSolution vs) {
-		if (deployer_ == null){
+		if (deployer_ == null) {
 			deployer_ = new OrderedDeployer(this);
 		}
 		return deployer_.deploy(vs);
 	}
 
+	@Override
+	public ValueFunction<VectorSolution> getFitnessFunction() {
+		return fitnessFunction_;
+	}
+
+	@Override
 	public int scoreDeployment(DeploymentPlan plan) {
 		if (plan.isValid()) {
 			int score = 0;
@@ -104,36 +124,30 @@ public class NetMinConfig extends DeploymentConfig {
 							+ residual.getHostExhaustions().size() + residual
 							.getDisconnections().size());
 		}
-//		boolean valid = true;
-//
-//		ResourceResidual residual = new ResourceResidual(this);
-//		residual.deploy(plan);
-//
-//		if (residual.valid()) {
-//			int[] capacity = new int[networks_[0].resources_.length];
-//			for (NetworkLink nl : networks_) {
-//				capacity = sum(capacity, residual.getResourceResiduals(nl));
-//			}
-//			int score = 0;
-//			for (int i = 0; i < capacity.length; i++) {
-//				int coeff = (networkResourceCoeffs_ == null) ? 1
-//						: networkResourceCoeffs_[i];
-//				score += (capacity[i] * coeff);
-//			}
-//
-//			return score;
-//		} else {
-//			return -1
-//					* (residual.linkExhaustions_.size()
-//							+ residual.hostExhaustions_.size() + residual.disconnections_
-//							.size());
-//		}
+		// boolean valid = true;
+		//
+		// ResourceResidual residual = new ResourceResidual(this);
+		// residual.deploy(plan);
+		//
+		// if (residual.valid()) {
+		// int[] capacity = new int[networks_[0].resources_.length];
+		// for (NetworkLink nl : networks_) {
+		// capacity = sum(capacity, residual.getResourceResiduals(nl));
+		// }
+		// int score = 0;
+		// for (int i = 0; i < capacity.length; i++) {
+		// int coeff = (networkResourceCoeffs_ == null) ? 1
+		// : networkResourceCoeffs_[i];
+		// score += (capacity[i] * coeff);
+		// }
+		//
+		// return score;
+		// } else {
+		// return -1
+		// * (residual.linkExhaustions_.size()
+		// + residual.hostExhaustions_.size() + residual.disconnections_
+		// .size());
+		// }
 	}
-
-
-	public void setFitnessFunction(ValueFunction<VectorSolution> fitnessFunction) {
-		fitnessFunction_ = fitnessFunction;
-	}
-	
 
 }

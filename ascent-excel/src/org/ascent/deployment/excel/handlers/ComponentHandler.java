@@ -1,16 +1,13 @@
 package org.ascent.deployment.excel.handlers;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import jxl.Sheet;
 
-import org.apache.poi.util.ArrayUtil;
 import org.ascent.deployment.Component;
 import org.ascent.deployment.DeploymentConfig;
 import org.ascent.deployment.Node;
 import org.ascent.deployment.excel.ExcelDeploymentConfigException;
-import org.ascent.hamy.OptionalComponentCallback;
 
 /*******************************************************************************
  * Copyright (c) 2007 Jules White. All rights reserved. This program and the
@@ -24,13 +21,7 @@ public class ComponentHandler extends AbstractWorksheetHandler {
 
 	public static final String COMPONENTS_RESOURCES_SHEET = "Component Resources";
 
-	private OptionalComponentCallback optionalCallback_ = null;
-
 	public ComponentHandler() {
-	}
-
-	public ComponentHandler(OptionalComponentCallback callback) {
-		optionalCallback_ = callback;
 	}
 
 	public String getWorksheetName() {
@@ -46,12 +37,6 @@ public class ComponentHandler extends AbstractWorksheetHandler {
 		for (int i = 1; i < rows; i++) {
 			try {
 				int[] cres = getIntResources(comps, i);
-
-				// Do we care about optional
-				if (optionalCallback_ != null
-						&& optionalCallback_.shouldIncludeComponent(
-								getPrimaryKey(comps, i), cres) == false)
-					continue;
 
 				Component c = problem.addComponent(getPrimaryKey(comps, i),
 						cres);

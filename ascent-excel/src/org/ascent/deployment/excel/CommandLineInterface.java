@@ -17,7 +17,6 @@
 package org.ascent.deployment.excel;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.util.Comparator;
 
 import org.apache.commons.cli.CommandLine;
@@ -36,9 +35,6 @@ import org.ascent.deployment.NetMinConfig;
 import org.ascent.deployment.RateMonotonicPessimisticResource;
 import org.ascent.deployment.RateMonotonicResource;
 import org.ascent.deployment.RateMonotonicResponseTimeResource;
-import org.ascent.deployment.excel.output.ExcelDeploymentPlan;
-import org.ascent.deployment.output.HtmlUtil;
-import org.ascent.hamy.OptionalComponentCallback;
 import org.ascent.pso.Pso;
 
 public class CommandLineInterface {

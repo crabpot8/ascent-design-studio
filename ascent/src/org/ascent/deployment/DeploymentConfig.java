@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.ascent.ProblemConfig;
 import org.ascent.ProblemConfigImpl;
 import org.ascent.ResourceConsumptionPolicy;
 import org.ascent.Util;
@@ -33,6 +34,24 @@ import org.ascent.binpacking.Packer;
 import org.ascent.binpacking.RandomItemPacker;
 import org.ascent.binpacking.ValueFunction;
 
+/**
+ * 
+ * Provides a {@link ProblemConfig} that is specific to performing
+ * software-to-available-hardware deployments. By default, the
+ * {@link VectorSolution} directly represents the final deployment plan--with
+ * <i>N</i> nodes and <i>C</i> components, each component has a unique index and
+ * each value is the node that component should be assigned to e.g.
+ * <code>sol.getPosition()[C<sub>i</sub>] = N<sub>i</sub></code>. To acquire the
+ * {@link DeploymentPlan} for this solution just use the default
+ * {@link DeploymentConfig#getDeploymentPlan(VectorSolution)} <br />
+ * <br />
+ * However, with solutions such as the {@link NetMinConfig}, the
+ * {@link VectorSolution} represents the order in which components should be
+ * deployed, and therefore needs to be translated a {@link DeploymentPlan} by
+ * use of an {@link OrderedDeployer}, so the overridden method
+ * {@link NetMinConfig#getDeploymentPlan(VectorSolution)} is used.
+ * 
+ */
 public class DeploymentConfig extends ProblemConfigImpl {
 
 	private ValueFunction<VectorSolution> scoringFunction_ = new ValueFunction<VectorSolution>() {
@@ -384,8 +403,8 @@ public class DeploymentConfig extends ProblemConfigImpl {
 			BinPackingProblem bp = new BinPackingProblem();
 			bp.getResourcePolicies().putAll(getResourceConsumptionPolicies());
 			for (Node n : getNodes()) {
-				HardwareNode hn = new HardwareNode(n.getLabel(), n
-						.getResources());
+				HardwareNode hn = new HardwareNode(n.getLabel(),
+						n.getResources());
 				bp.getBins().add(hn);
 				mapping.put(hn, n);
 				mapping.put(n, hn);

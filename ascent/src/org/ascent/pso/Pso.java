@@ -19,6 +19,7 @@ package org.ascent.pso;
 import org.ascent.ProblemConfig;
 import org.ascent.VectorSolution;
 import org.ascent.binpacking.ValueFunction;
+import org.ascent.deployment.DeploymentPlan;
 
 /**
  * This class is an implementation of a particle swarm optimization algorithm
@@ -96,12 +97,25 @@ public class Pso {
 		System.out.println("}");
 	}
 
-	public VectorSolution solve(ValueFunction<VectorSolution> goal) {
+	/**
+	 * Runs the particle swarm optimization on the defined {@link ProblemConfig}
+	 * and returns the best found {@link VectorSolution}. Note that using a
+	 * {@link VectorSolution} does not imply any solution-space representation.
+	 * The {@link Pso} purposefully works on generic n-dimensional integer
+	 * arrays, and the specific subclass of {@link ProblemConfig} used should be
+	 * consulted to see how the resulting solution should be interpreted.
+	 * 
+	 * @param rank
+	 *            A function that allows the PSO to rank different
+	 *            {@link VectorSolution}s. Higher values are considered better.
+	 * @return
+	 */
+	public VectorSolution solve(ValueFunction<VectorSolution> rank) {
 		int retry = adaptiveRetries_;
-		fitnessFunction_ = goal;
-		VectorSolution solution = solveImpl(goal);
+		fitnessFunction_ = rank;
+		VectorSolution solution = solveImpl(rank);
 		while (solution == null && retry > 0) {
-			solution = solveImpl(goal);
+			solution = solveImpl(rank);
 			retry--;
 			setIterations(getIterations() * 2);
 			setTotalParticles(getTotalParticles() + 10);
@@ -124,7 +138,7 @@ public class Pso {
 
 		}
 
-		//printState("Initial Positions", particles);
+		// printState("Initial Positions", particles);
 
 		int iter = iterations_;
 		while (iter > 0) {
@@ -191,7 +205,7 @@ public class Pso {
 		// 5,
 		// 50);
 		// // System.out.println(p);
-		//		
+		//
 		// long pstart = System.currentTimeMillis();
 		// AbstractPso psolver = new AbstractPso(p);
 		// // psolver.getSeeds().add(solution2);

@@ -1,4 +1,4 @@
- /**************************************************************************
+/**************************************************************************
  * Copyright 2008 Jules White                                              *
  *                                                                         *
  * Licensed under the Apache License, Version 2.0 (the "License");         *
@@ -14,7 +14,6 @@
  * limitations under the License.                                          *
  **************************************************************************/
 
-
 package org.ascent.deployment;
 
 import java.util.ArrayList;
@@ -25,43 +24,53 @@ import java.util.Map;
 import org.ascent.VectorSolution;
 
 public class DeploymentPlan {
-	private Map<Node,Integer> nodeLookup_;
+	private Map<Node, Integer> nodeLookup_;
 	private Map<Component, Integer> componentLookup_;
 	private VectorSolution solution_;
 	private DeploymentConfig deploymentConfiguration_;
-	
+
+	/**
+	 * Note that it is generally safer to call
+	 * {@link DeploymentConfig#getDeploymentPlan(VectorSolution)} unless you're
+	 * specifically changing default behavior or in the process of
+	 * building/debugging a new {@link DeploymentConfig} subclass.
+	 * 
+	 * @param config
+	 * @param solution
+	 */
 	public DeploymentPlan(DeploymentConfig config, VectorSolution solution) {
 		super();
 		solution_ = solution;
 		deploymentConfiguration_ = config;
-		
+
 		initComponentLookup();
 		initNodeLookup();
 	}
-	
-	public DeploymentPlan(DeploymentConfig conf, Map<Component,Node> plan){
+
+	public DeploymentPlan(DeploymentConfig conf, Map<Component, Node> plan) {
 		super();
 		deploymentConfiguration_ = conf;
 		int[] sol = new int[plan.size()];
-		
+
 		initComponentLookup();
 		initNodeLookup();
-		
-		for(int i = 0; i < conf.getComponents().length; i++)
+
+		for (int i = 0; i < conf.getComponents().length; i++)
 			sol[i] = nodeLookup_.get(plan.get(conf.getComponents()[i]));
-		
+
 		solution_ = new VectorSolution(sol);
 	}
-	
-	protected void initComponentLookup(){
+
+	protected void initComponentLookup() {
 		componentLookup_ = new HashMap<Component, Integer>();
-		for(int i = 0; i < deploymentConfiguration_.getComponents().length; i++)
-			componentLookup_.put(deploymentConfiguration_.getComponents()[i], i);
+		for (int i = 0; i < deploymentConfiguration_.getComponents().length; i++)
+			componentLookup_
+					.put(deploymentConfiguration_.getComponents()[i], i);
 	}
-	
-	protected void initNodeLookup(){
+
+	protected void initNodeLookup() {
 		nodeLookup_ = new HashMap<Node, Integer>();
-		for(int i = 0; i < deploymentConfiguration_.getNodes().length; i++)
+		for (int i = 0; i < deploymentConfiguration_.getNodes().length; i++)
 			nodeLookup_.put(deploymentConfiguration_.getNodes()[i], i);
 	}
 
@@ -77,17 +86,19 @@ public class DeploymentPlan {
 		return deploymentConfiguration_;
 	}
 
-	public void setDeploymentConfiguration(DeploymentConfig deploymentConfiguration) {
+	public void setDeploymentConfiguration(
+			DeploymentConfig deploymentConfiguration) {
 		deploymentConfiguration_ = deploymentConfiguration;
 	}
 
 	public Node getHost(Component c) {
-		int hostid = solution_.getPosition()[c.id_];	
+		int hostid = solution_.getPosition()[c.id_];
 		return deploymentConfiguration_.getNodes()[hostid];
 	}
-	
-	public void moveTo(Component c, Node host){
-		solution_.getPosition()[componentLookup_.get(c)] = nodeLookup_.get(host);
+
+	public void moveTo(Component c, Node host) {
+		solution_.getPosition()[componentLookup_.get(c)] = nodeLookup_
+				.get(host);
 	}
 
 	public NetworkLink getChannel(Interaction i) {
@@ -120,29 +131,31 @@ public class DeploymentPlan {
 		}
 		return hosted.toArray(new Component[0]);
 	}
-	
-	public boolean isValid(){
+
+	public boolean isValid() {
 		ResourceResidual resid = new ResourceResidual(deploymentConfiguration_);
 		resid.deploy(this);
-		if(!resid.valid())
+		if (!resid.valid())
 			return false;
-		
-		for(DeploymentConstraint con : deploymentConfiguration_.getConstraints())
-			if(!con.isEnforced(this))
+
+		for (DeploymentConstraint con : deploymentConfiguration_
+				.getConstraints())
+			if (!con.isEnforced(this))
 				return false;
-		
+
 		return true;
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		return toString(false);
 	}
-	
-	public DeploymentPlan clonePlan(){
+
+	public DeploymentPlan clonePlan() {
 		int[] pos = solution_.getPosition();
 		int[] cpos = new int[pos.length];
 		System.arraycopy(pos, 0, cpos, 0, cpos.length);
-		DeploymentPlan plan = new DeploymentPlan(deploymentConfiguration_,new VectorSolution(cpos));
+		DeploymentPlan plan = new DeploymentPlan(deploymentConfiguration_,
+				new VectorSolution(cpos));
 		return plan;
 	}
 

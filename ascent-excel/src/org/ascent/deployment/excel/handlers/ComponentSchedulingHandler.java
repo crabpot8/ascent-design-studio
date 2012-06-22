@@ -12,7 +12,6 @@ import org.ascent.deployment.DeploymentConfig;
 import org.ascent.deployment.Node;
 import org.ascent.deployment.RateMonotonicResource;
 import org.ascent.deployment.excel.ExcelDeploymentConfigException;
-import org.ascent.hamy.OptionalComponentCallback;
 
 /*******************************************************************************
  * Copyright (c) 2007 Jules White. All rights reserved. This program and the
@@ -26,17 +25,11 @@ public class ComponentSchedulingHandler extends AbstractWorksheetHandler {
 
 	public static final String COMPONENTS_SCHEDULING_SHEET = "Component Scheduling";
 
-	private OptionalComponentCallback optionalCallback_ = null;
-
 	public String getWorksheetName() {
 		return COMPONENTS_SCHEDULING_SHEET;
 	}
 
 	public ComponentSchedulingHandler() {
-	}
-
-	public ComponentSchedulingHandler(OptionalComponentCallback oc) {
-		optionalCallback_ = oc;
 	}
 
 	@Override
@@ -71,11 +64,6 @@ public class ComponentSchedulingHandler extends AbstractWorksheetHandler {
 				throw new ExcelDeploymentConfigException(
 						"Invalid component id:" + pk,
 						COMPONENTS_SCHEDULING_SHEET, i + 1, 0);
-
-			// Do we care about optional
-			if (optionalCallback_ != null
-					&& optionalCallback_.shouldIncludeComponent(pk, null) == false)
-				continue;
 
 			Component comp = comps.get(pk);
 
