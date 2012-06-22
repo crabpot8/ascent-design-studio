@@ -20,7 +20,7 @@ import java.util.*;
 
 public class SparseBitSet extends BitSet implements Iterable<Integer> {
 
-	protected Set bitset;
+	public Set bitset;
 	private int value_;
 	private int[] weight_;
 	private double netWeight_;
