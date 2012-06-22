@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/236/trunk/ascent/code/excel/src/org/ascent/deployment/excel/test
+END
+NetMinConfigLargeDeploymentConfigTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/75/trunk/ascent/code/excel/src/org/ascent/deployment/excel/test/NetMinConfigLargeDeploymentConfigTest.java
+END
+ExcelLargeDeploymentConfigTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/125/trunk/ascent/code/excel/src/org/ascent/deployment/excel/test/ExcelLargeDeploymentConfigTest.java
+END
+ExcelDeploymentConfigTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/63/trunk/ascent/code/excel/src/org/ascent/deployment/excel/test/ExcelDeploymentConfigTest.java
+END
+WikiExcelDeploymentProblems.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/75/trunk/ascent/code/excel/src/org/ascent/deployment/excel/test/WikiExcelDeploymentProblems.java
+END
+AllTests.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/63/trunk/ascent/code/excel/src/org/ascent/deployment/excel/test/AllTests.java
+END
+ExcelWriterTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/236/trunk/ascent/code/excel/src/org/ascent/deployment/excel/test/ExcelWriterTest.java
+END

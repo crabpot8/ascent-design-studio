@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="execute" name="JExcel Connector">
+
+  <property name="connector.type.name" value="jeconnector" />
+  <property name="jeconnector.home" value="${connectors.dir}\${connector.type.name}.home"/>
+  <property name="outputFile" value="output1.xls"/>
+  <property name="option" value="workbook"/>
+  <property name="inputFile" value="t"/>
+  <property name="artifactFolder" value="a"/>
+  
+  
+
+
+  <target name="-install-connector-pkg">
+
+            <echo message="AntFile:${antFile}"/>
+		<!--Find the parent directory of the
+		    connector ant script-->
+		<dirname property="connector.dir" file="${antFile}" />
+		
+		<!--See if the connector has a package in
+		    its containing directory. The connector
+		    package should be named <connector.type.name>.zip.
+		    If "setup reconfigure" is called the package 
+		    will not be there.-->
+		<available property="has.pkg" 
+			       file="${connector.dir}/${connector.type.name}.zip" />
+		
+
+		<echo message="Connector PKG:${connector.dir}/${connector.type.name}.zip"/>
+
+		<!--Install the package and setup the connector's
+		    home directory. The install and home setup will
+		    only take place if the connector package exists.-->
+		<antcall target="-setup-home"/>
+   </target>
+
+   <target name="-setup-home" if="has.pkg">
+		<!--Figure out which directory contains this
+  	 		    connector build file -->
+		<dirname property="connector.dir" file="${antFile}" />
+
+		<!--Create a directory inside the NAOMI client
+  	 		    to hold the connector's resources-->
+		<mkdir dir="${connectors.dir}/${connector.type.name}.home" />
+
+		<!--Unzip the connector's resources to their
+  	 		    new home in the NAOMI client-->
+		<unzip src="${connector.dir}/${connector.type.name}.zip" 
+			   dest="${connectors.dir}/${connector.type.name}.home" />
+  </target>
+  
+  <target name="-do.branch.execution">
+   <mkdir dir="${models.dir}/${outputFile}"/>
+   <java classname="naomi_excel_xls">
+   	         <arg value="${inputFile}"/>
+   	  		 <arg value="${outputFile}"/>
+   	         <arg value="${artifactFolder}"/>
+   	         <arg value="${option}"/>
+         
+	<classpath>
+        <fileset dir="${jeconnector.home}/lib">
+          <include name="**/*.jar"/>
+        </fileset>
+        <pathelement path="${java.class.path}"/>
+      </classpath>
+      </java>
+  </target>
+       
+
+
+  <target  name="execute" 
+               description="executes the main main from naomi_excel_xls (and the rest)">
+  <echo>Attempting to execute excelConnector</echo>
+  <mkdir dir="${models.dir}/${outputFile}"/>
+
+  <java classname="org.ascent.excel.naomi_excel_xls">
+         
+        
+         <arg value="${inputFile}"/> 
+         <arg value="${outputFile}"/>
+  		 <arg value="${artifactFolder}"/>
+         <arg value="${option}"/>
+         
+	<classpath>
+        <fileset dir="${jeconnector.home}/lib">
+          <include name="**/*.jar"/>
+        </fileset>
+        <pathelement path="${java.class.path}"/>
+      </classpath>
+      </java>
+  </target>
+
+
+ <target name="-init" depends="-install-connector-pkg">
+    <echo message="AntFile:${antFile}"/>
+
+    <wizardInput message="Initialize the Connector">
+      <panel message="Specify Input file, output file, artifacts directory, and output option.">
+        <property addproperty="inputFile" customizer="javax.swing.JFileChooser" customizertext="Browse" defaultvalue="${inputFile}" displayname="Path to Input File"/>
+        <property addproperty="outputFile" customizer="javax.swing.JTextArea" customizertext="Enter" defaultvalue="${outputFile}" displayname="Name of Output File"/>
+	<property addproperty="artifactFolder" customizer="javax.swing.JFileChooser" customizertext="Browse" defaultvalue="${artifactFolder}" displayname="Path to Naomi Artifacts Folder"/>
+	<property addproperty="option" customizer="javax.swing.JTextArea" customizertext="Enter" defaultvalue="${option}" displayname="Output option (workbook|sheet|same)"/>
+      </panel>
+    </wizardInput>
+    <echo message="Ant file ${ant.file}"/>
+    <xmlupdate file="${ant.file}">
+      <xpath xpath="//project/property[@name='inputFile']"/>
+      <update name="property">
+        <attribute name="name" value="inputFile"/>
+        <attribute name="value" value="${inputFile}"/>
+      </update>
+    </xmlupdate>
+    <xmlupdate file="${ant.file}">
+      <xpath xpath="//project/property[@name='outputFile']"/>
+      <update name="property">
+        <attribute name="name" value="outputFile"/>
+        <attribute name="value" value="${outputFile}"/>
+      </update>
+     </xmlupdate>
+    <xmlupdate file="${ant.file}">
+      <xpath xpath="//project/property[@name='artifactFolder']"/>
+      <update name="property">
+        <attribute name="name" value="artifactFolder"/>
+        <attribute name="value" value="${artifactFolder}"/>
+      </update>
+    </xmlupdate>
+ <xmlupdate file="${ant.file}">
+      <xpath xpath="//project/property[@name='option']"/>
+      <update name="property">
+        <attribute name="name" value="option"/>
+        <attribute name="value" value="${option}"/>
+      </update>
+    </xmlupdate>
+
+  </target>
+  <target depends="-init" description="Reconfigure the Connector" name="Setup-&gt;Re-Configure"/>
+</project>

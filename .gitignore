@@ -1,3 +1,5 @@
 .metadata
 .DS_Store
 ascent/bin/
+ascent-excel/bin
+ascent-excel/data
