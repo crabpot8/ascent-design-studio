@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr
+END
+Expression.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/Expression.java
+END
+TargetVariableSumExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/TargetVariableSumExpression.java
+END
+VariableValueExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/VariableValueExpression.java
+END
+Cardinality.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/Cardinality.java
+END
+SourceVariableValueExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/SourceVariableValueExpression.java
+END
+BinaryExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/BinaryExpression.java
+END
+ConstantIntegerExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/ConstantIntegerExpression.java
+END
+MappedToExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/MappedToExpression.java
+END
+TargetVariableValueExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/TargetVariableValueExpression.java
+END
+VariableSumExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/VariableSumExpression.java
+END
+SourceVariableSumExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/SourceVariableSumExpression.java
+END
+ConstantRealExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/ConstantRealExpression.java
+END
+UnaryExpression.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/expr/UnaryExpression.java
+END

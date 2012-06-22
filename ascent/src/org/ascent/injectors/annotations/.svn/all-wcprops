@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations
+END
+ReferenceCapableAnnotationHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/ReferenceCapableAnnotationHandler.java
+END
+InsertAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/InsertAnnotation.java
+END
+InjectionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/InjectionException.java
+END
+ForEachAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/ForEachAnnotation.java
+END
+SupportsDisable.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/SupportsDisable.java
+END
+IfEnabledAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/IfEnabledAnnotation.java
+END
+ReplaceAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/ReplaceAnnotation.java
+END
+XMLReplaceAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/XMLReplaceAnnotation.java
+END
+AnnotationHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/AnnotationHandler.java
+END
+InvalidInjectionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/InvalidInjectionException.java
+END
+AbstractAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/injectors/annotations/AbstractAnnotation.java
+END

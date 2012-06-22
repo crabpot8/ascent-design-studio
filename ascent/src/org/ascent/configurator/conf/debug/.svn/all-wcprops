@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug
+END
+ExcludesDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/ExcludesDebugger.java
+END
+Conflict.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/Conflict.java
+END
+SolutionConsistencyChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/SolutionConsistencyChecker.java
+END
+ConstraintReference.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/ConstraintReference.java
+END
+RefreshDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/RefreshDebugger.java
+END
+RequiresDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/RequiresDebugger.java
+END
+SelectDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/SelectDebugger.java
+END
+ProblemDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/ProblemDebugger.java
+END
+SourceConstraintDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/SourceConstraintDebugger.java
+END
+CommandLineDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/CommandLineDebugger.java
+END
+DebuggerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/configurator/conf/debug/DebuggerFactory.java
+END

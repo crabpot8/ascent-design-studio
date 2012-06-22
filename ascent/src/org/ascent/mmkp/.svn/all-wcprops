@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/74/trunk/ascent/code/core/src/org/ascent/mmkp
+END
+BasicItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/BasicItem.java
+END
+FeatureSelection.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/74/trunk/ascent/code/core/src/org/ascent/mmkp/FeatureSelection.java
+END
+GeneticMMKP.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/GeneticMMKP.java
+END
+MMKP.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/MMKP.java
+END
+GreedyMMKP.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/GreedyMMKP.java
+END
+CombinedMMKP.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/CombinedMMKP.java
+END
+RandomMMKP.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/RandomMMKP.java
+END
+FeatureSelectionFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/74/trunk/ascent/code/core/src/org/ascent/mmkp/FeatureSelectionFilter.java
+END
+SparseBitSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/SparseBitSet.java
+END
+FMRedux.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/74/trunk/ascent/code/core/src/org/ascent/mmkp/FMRedux.java
+END
+PsoMMKPConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/PsoMMKPConfig.java
+END
+Solution.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/Solution.java
+END
+MMKPCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/MMKPCore.java
+END
+GreedyMMKPCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/GreedyMMKPCore.java
+END
+DeploymentUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/DeploymentUtil.java
+END
+PartialFeatureSelection.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/PartialFeatureSelection.java
+END
+MMKPSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/MMKPSet.java
+END
+FMToMMKPConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/FMToMMKPConverter.java
+END
+SummationOptimization.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/SummationOptimization.java
+END
+FeatureModelGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/FeatureModelGenerator.java
+END
+Filter.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/Filter.java
+END
+MMKPProblem.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/MMKPProblem.java
+END
+PsoMMKP.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/PsoMMKP.java
+END
+NULLFeature.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/NULLFeature.java
+END
+FeatureMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/FeatureMap.java
+END
+SeedableMMKP.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/SeedableMMKP.java
+END
+Feature.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/74/trunk/ascent/code/core/src/org/ascent/mmkp/Feature.java
+END
+JHEU.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/JHEU.java
+END
+SetState.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/SetState.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/mmkp/Item.java
+END

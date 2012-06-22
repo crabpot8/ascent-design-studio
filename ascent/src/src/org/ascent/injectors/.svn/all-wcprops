@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors
+END
+CommentBasedInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/CommentBasedInjector.java
+END
+FeatureMatcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/FeatureMatcher.java
+END
+PrologInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/PrologInjector.java
+END
+VariableNotInScopeException.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/VariableNotInScopeException.java
+END
+AnnotationBasedInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/AnnotationBasedInjector.java
+END
+AnnotationConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/AnnotationConstants.java
+END
+TemplateInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/TemplateInjector.java
+END
+AbstractTracingInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/AbstractTracingInjector.java
+END
+BasicTemplateInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/BasicTemplateInjector.java
+END
+Injector.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/Injector.java
+END
+JavaInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/JavaInjector.java
+END
+BasicMatcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/BasicMatcher.java
+END
+AbstractAnnotationBasedInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/AbstractAnnotationBasedInjector.java
+END
+ConfigurationBinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/ConfigurationBinder.java
+END
+BasicConfigurationBinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/BasicConfigurationBinder.java
+END
+XMLInjector.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/XMLInjector.java
+END
+NullBinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/NullBinder.java
+END

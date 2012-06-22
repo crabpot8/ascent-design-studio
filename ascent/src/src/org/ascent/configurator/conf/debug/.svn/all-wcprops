@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug
+END
+ExcludesDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/ExcludesDebugger.java
+END
+Conflict.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/Conflict.java
+END
+SolutionConsistencyChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/SolutionConsistencyChecker.java
+END
+ConstraintReference.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/ConstraintReference.java
+END
+RefreshDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/RefreshDebugger.java
+END
+RequiresDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/RequiresDebugger.java
+END
+SelectDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/SelectDebugger.java
+END
+ProblemDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/ProblemDebugger.java
+END
+SourceConstraintDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/SourceConstraintDebugger.java
+END
+CommandLineDebugger.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/CommandLineDebugger.java
+END
+DebuggerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/conf/debug/DebuggerFactory.java
+END

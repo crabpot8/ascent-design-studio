@@ -1,0 +1,257 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/235/trunk/ascent/code/core/src/org/ascent/binpacking
+END
+ItemState.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/30/trunk/ascent/code/core/src/org/ascent/binpacking/ItemState.java
+END
+Requires.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/Requires.java
+END
+ItemSelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/27/trunk/ascent/code/core/src/org/ascent/binpacking/ItemSelector.java
+END
+ClassicItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/78/trunk/ascent/code/core/src/org/ascent/binpacking/ClassicItem.java
+END
+AbstractState.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/30/trunk/ascent/code/core/src/org/ascent/binpacking/AbstractState.java
+END
+DependencyManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/DependencyManager.java
+END
+SearchAlgorithm.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/SearchAlgorithm.java
+END
+WeightUpdateStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/24/trunk/ascent/code/core/src/org/ascent/binpacking/WeightUpdateStrategy.java
+END
+FFDBinPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/235/trunk/ascent/code/core/src/org/ascent/binpacking/FFDBinPacker.java
+END
+MinExclusionSelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/30/trunk/ascent/code/core/src/org/ascent/binpacking/MinExclusionSelector.java
+END
+AbstractBinPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/101/trunk/ascent/code/core/src/org/ascent/binpacking/AbstractBinPacker.java
+END
+ValueFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/ValueFunction.java
+END
+AbstractItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/16/trunk/ascent/code/core/src/org/ascent/binpacking/AbstractItem.java
+END
+SearchCompletionCriteria.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/SearchCompletionCriteria.java
+END
+RePackBinPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/27/trunk/ascent/code/core/src/org/ascent/binpacking/RePackBinPacker.java
+END
+Dependencies.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/Dependencies.java
+END
+LeastBoundMinExcPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/27/trunk/ascent/code/core/src/org/ascent/binpacking/LeastBoundMinExcPacker.java
+END
+RefreshBinPackingCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/103/trunk/ascent/code/core/src/org/ascent/binpacking/RefreshBinPackingCore.java
+END
+BasicBinPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/90/trunk/ascent/code/core/src/org/ascent/binpacking/BasicBinPacker.java
+END
+RandomItemSelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/31/trunk/ascent/code/core/src/org/ascent/binpacking/RandomItemSelector.java
+END
+Packer.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/31/trunk/ascent/code/core/src/org/ascent/binpacking/Packer.java
+END
+AggregateItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/31/trunk/ascent/code/core/src/org/ascent/binpacking/AggregateItem.java
+END
+Bin.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/Bin.java
+END
+FirstItemRandomSelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/31/trunk/ascent/code/core/src/org/ascent/binpacking/FirstItemRandomSelector.java
+END
+BinSelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/27/trunk/ascent/code/core/src/org/ascent/binpacking/BinSelector.java
+END
+BinState.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/BinState.java
+END
+RandomBinSelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/30/trunk/ascent/code/core/src/org/ascent/binpacking/RandomBinSelector.java
+END
+ClassicBin.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/23/trunk/ascent/code/core/src/org/ascent/binpacking/ClassicBin.java
+END
+Excludes.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/Excludes.java
+END
+Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/Util.java
+END
+Dependency.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/Dependency.java
+END
+FitsOperator.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/101/trunk/ascent/code/core/src/org/ascent/binpacking/FitsOperator.java
+END
+RandomItemPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/31/trunk/ascent/code/core/src/org/ascent/binpacking/RandomItemPacker.java
+END
+BinPackingProblem.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/103/trunk/ascent/code/core/src/org/ascent/binpacking/BinPackingProblem.java
+END
+LeastBoundPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/27/trunk/ascent/code/core/src/org/ascent/binpacking/LeastBoundPacker.java
+END
+Element.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/78/trunk/ascent/code/core/src/org/ascent/binpacking/Element.java
+END
+StateProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/StateProvider.java
+END
+MultiStrategyBinPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/30/trunk/ascent/code/core/src/org/ascent/binpacking/MultiStrategyBinPacker.java
+END
+StrategizedLeastBoundPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/27/trunk/ascent/code/core/src/org/ascent/binpacking/StrategizedLeastBoundPacker.java
+END
+OptimizationFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/13/trunk/ascent/code/core/src/org/ascent/binpacking/OptimizationFunction.java
+END
+AdaptiveFFDBinPacker.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/27/trunk/ascent/code/core/src/org/ascent/binpacking/AdaptiveFFDBinPacker.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/98/trunk/ascent/code/core/src/org/ascent/binpacking/Item.java
+END

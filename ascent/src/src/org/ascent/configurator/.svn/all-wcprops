@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator
+END
+Solutions.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/Solutions.java
+END
+RefreshCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/RefreshCore.java
+END
+AbstractRefreshChocoCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/AbstractRefreshChocoCore.java
+END
+UnsupportedConstraintException.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/UnsupportedConstraintException.java
+END
+DelegatingCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/DelegatingCore.java
+END
+ProblemBuilderCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/ProblemBuilderCore.java
+END
+ChocoRefreshCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/ChocoRefreshCore.java
+END
+SelectionHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/SelectionHandler.java
+END
+Constraint.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/Constraint.java
+END
+RefreshEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/RefreshEngine.java
+END
+UnsolvableException.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/UnsolvableException.java
+END
+CoreAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/CoreAdapter.java
+END
+RefreshVectorCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/RefreshVectorCore.java
+END
+AbstractRefreshCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/AbstractRefreshCore.java
+END
+RefreshMatrixCore.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/configurator/RefreshMatrixCore.java
+END

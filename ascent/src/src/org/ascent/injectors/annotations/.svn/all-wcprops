@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations
+END
+ReferenceCapableAnnotationHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/ReferenceCapableAnnotationHandler.java
+END
+InsertAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/InsertAnnotation.java
+END
+InjectionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/InjectionException.java
+END
+ForEachAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/ForEachAnnotation.java
+END
+SupportsDisable.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/SupportsDisable.java
+END
+IfEnabledAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/IfEnabledAnnotation.java
+END
+ReplaceAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/ReplaceAnnotation.java
+END
+XMLReplaceAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/XMLReplaceAnnotation.java
+END
+AnnotationHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/AnnotationHandler.java
+END
+InvalidInjectionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/InvalidInjectionException.java
+END
+AbstractAnnotation.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/218/trunk/ascent/code/core/src/src/org/ascent/injectors/annotations/AbstractAnnotation.java
+END
