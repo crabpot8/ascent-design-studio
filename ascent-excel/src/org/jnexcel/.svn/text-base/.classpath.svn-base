@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/campbesh/My Documents/School Stuff/Research Stuff/Optimization Research/jexcelapi_2_6_9_1.4/jexcelapi/jxl.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/campbesh/My Documents/School Stuff/Research Stuff/Optimization Research/NAOMI-Client-API.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/campbesh/My Documents/School Stuff/Research Stuff/Optimization Research/castor.jar"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
