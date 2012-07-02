@@ -41,7 +41,7 @@ public class NodeHandler extends AbstractWorksheetHandler {
 				nodemap.put(n.getLabel(), n);
 			} catch (Exception e) {
 				throw new ExcelDeploymentConfigException(
-						"Invalid resource specification (a non-number is in the row)",
+						"Invalid resource specification (a non-integer is in the resources for row)",
 						NODES_SHEET, i + 1, -1);
 			}
 		}

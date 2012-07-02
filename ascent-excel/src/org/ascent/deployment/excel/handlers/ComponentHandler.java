@@ -7,6 +7,7 @@ import jxl.Sheet;
 import org.ascent.deployment.Component;
 import org.ascent.deployment.DeploymentConfig;
 import org.ascent.deployment.Node;
+import org.ascent.deployment.excel.ExcelDeploymentConfig;
 import org.ascent.deployment.excel.ExcelDeploymentConfigException;
 
 /*******************************************************************************
@@ -40,11 +41,13 @@ public class ComponentHandler extends AbstractWorksheetHandler {
 
 				Component c = problem.addComponent(getPrimaryKey(comps, i),
 						cres);
+				if (c.getLabel().startsWith(ExcelDeploymentConfig.OPTIONAL_COMPONENT_PREFIX))
+					c.setOptional(true);
 
 				complookup.put(c.getLabel(), c);
 			} catch (Exception e) {
 				throw new ExcelDeploymentConfigException(
-						"Invalid resource specification (a non-number is in the row)",
+						"Invalid resource specification (a non-integer is in the row)",
 						COMPONENTS_RESOURCES_SHEET, i + 1, -1);
 			}
 		}

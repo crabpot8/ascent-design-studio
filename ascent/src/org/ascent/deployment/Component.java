@@ -1,4 +1,4 @@
- /**************************************************************************
+/**************************************************************************
  * Copyright 2008 Jules White                                              *
  *                                                                         *
  * Licensed under the Apache License, Version 2.0 (the "License");         *
@@ -14,52 +14,67 @@
  * limitations under the License.                                          *
  **************************************************************************/
 
-
 package org.ascent.deployment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-public class Component extends ModelElement implements Schedulable{
+/**
+ * A {@link ModelElement} with normal id, label, and resources;
+ * {@link Component} also contains a number of {@link Interaction}s and
+ * {@link RealTimeTask}s
+ * 
+ */
+public class Component extends ModelElement implements Schedulable {
 	private Interaction[] interactions_ = new Interaction[0];
 	private List<RealTimeTask> realTimeTasks_ = new ArrayList<RealTimeTask>();
-	
+	private boolean optional_ = false;
+
 	public Component(int id, String label, int[] resources) {
 		super(id, label, resources);
 	}
-	
-	public Component(Component c){
+
+	public Component(Component c) {
 		super(c.id_, c.label_, c.resources_);
 	}
 
 	public Interaction[] getInteractions() {
 		return interactions_;
 	}
-	
-	public void addInteraction(Interaction newInteraction){
-		Interaction [] oldInteractions = interactions_;
-		interactions_ = new Interaction[oldInteractions.length+1];
-		for(int i= 0 ; i < oldInteractions.length; i ++){
-			interactions_[i] = oldInteractions[i]; 
+
+	public void addInteraction(Interaction newInteraction) {
+		Interaction[] oldInteractions = interactions_;
+		interactions_ = new Interaction[oldInteractions.length + 1];
+		for (int i = 0; i < oldInteractions.length; i++) {
+			interactions_[i] = oldInteractions[i];
 		}
 		interactions_[oldInteractions.length] = newInteraction;
-		
+
 	}
+
 	public void setInteractions(Interaction[] interactions) {
 		interactions_ = interactions;
 	}
 
+	/**
+	 * Allows indicating that this component is optional, which means that
+	 * deployments may exclude this component and still be marked as valid
+	 * 
+	 * @param isOptional
+	 */
+	public void setOptional(boolean isOptional) {
+		optional_ = isOptional;
+	}
+
 	public int getTotalTasks() {
-		if(realTimeTasks_.size() > 0)
+		if (realTimeTasks_.size() > 0)
 			return realTimeTasks_.size();
 		else
 			return 1;
 	}
-	
-	public void addTask(double period, double util){
-		realTimeTasks_.add(new RealTimeTask(period,util));
+
+	public void addTask(double period, double util) {
+		realTimeTasks_.add(new RealTimeTask(period, util));
 	}
 
 	public List<RealTimeTask> getRealTimeTasks() {
@@ -69,13 +84,10 @@ public class Component extends ModelElement implements Schedulable{
 	public void setRealTimeTasks(List<RealTimeTask> realTimeTasks) {
 		realTimeTasks_ = realTimeTasks;
 	}
-	
+
 	public String toString() {
-		return label_
-				+ " id:"
-				+ id_
-				+ " Resources:"
-				+ DeploymentWithNetworkMinimizationConfig
-						.toString(resources_) + " RT_Tasks:" + realTimeTasks_;
+		return label_ + " id:" + id_ + " Resources:"
+				+ DeploymentWithNetworkMinimizationConfig.toString(resources_)
+				+ " RT_Tasks:" + realTimeTasks_;
 	}
 }

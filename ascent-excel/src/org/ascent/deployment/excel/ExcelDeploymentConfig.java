@@ -38,6 +38,13 @@ import org.ascent.hamy.ExcelComponent;
 public class ExcelDeploymentConfig extends WorksheetManipulator {
 	private static final Logger log = Logger
 			.getLogger(ExcelDeploymentConfig.class.getName());
+
+	/**
+	 * Components with this prefix in their primary label will be marked as
+	 * optional
+	 */
+	public static final String OPTIONAL_COMPONENT_PREFIX = "Opt_";
+
 	private List<WorksheetHandler> handlers_ = new ArrayList<WorksheetHandler>();
 
 	public ExcelDeploymentConfig() {
