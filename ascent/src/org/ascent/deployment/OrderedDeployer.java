@@ -108,7 +108,7 @@ public class OrderedDeployer {
 	}
 
 	/**
-	 * \ This method uses an FFDBinPacker and the specified packing order and
+	 * This method uses an FFDBinPacker and the specified packing order and
 	 * configures the packer to pack the items in the predefined order. The
 	 * method returns the result of packing the items in the given order with
 	 * the FFDBinPacker.
@@ -122,7 +122,7 @@ public class OrderedDeployer {
 	}
 
 	/**
-	 * \ This method takes a bin-packer and a specified packing order and
+	 * This method takes a bin-packer and a specified packing order and
 	 * configures the packer to pack the items in the predefined order. The
 	 * method returns the result of packing the items in the given order with
 	 * the provided bin-packer.
@@ -170,7 +170,7 @@ public class OrderedDeployer {
 			}
 		}
 
-		// Turn the solution into a deploymentplan
+		// Turn the solution into a deployment plan
 		return new DeploymentPlan(conf_, new VectorSolution(pos));
 	}
 

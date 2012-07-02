@@ -13,7 +13,8 @@ handlers=java.util.logging.ConsoleHandler
 .level=SEVERE
 
 # Specify logging levels for specific namespaces.
-org.ascent.hamy.level=FINEST
+org.ascent.hamy.level=FINE
+org.ascent.deployment.excel.ExcelDeploymentConfig.level=FINE
 
 # Configure the ConsoleHandler.
 # ConsoleHandler uses java.util.logging.SimpleFormatter by default. 

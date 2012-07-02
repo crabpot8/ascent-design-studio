@@ -16,10 +16,11 @@
 
 package org.ascent.pso;
 
+import java.util.logging.Logger;
+
 import org.ascent.ProblemConfig;
 import org.ascent.VectorSolution;
 import org.ascent.binpacking.ValueFunction;
-import org.ascent.deployment.DeploymentPlan;
 
 /**
  * This class is an implementation of a particle swarm optimization algorithm
@@ -31,6 +32,7 @@ import org.ascent.deployment.DeploymentPlan;
  * 
  */
 public class Pso {
+	private static final Logger log = Logger.getLogger(Pso.class.getName());
 
 	private ProblemConfig configuration_;
 	private boolean globalBestMustBeFeasible_ = false;
@@ -108,7 +110,8 @@ public class Pso {
 	 * @param rank
 	 *            A function that allows the PSO to rank different
 	 *            {@link VectorSolution}s. Higher values are considered better.
-	 * @return
+	 * @return A solution if one is found, or null if no solution was found
+	 *         within the number of adaptative retries
 	 */
 	public VectorSolution solve(ValueFunction<VectorSolution> rank) {
 		int retry = adaptiveRetries_;
@@ -120,6 +123,8 @@ public class Pso {
 			setIterations(getIterations() * 2);
 			setTotalParticles(getTotalParticles() + 10);
 		}
+		if (solution == null)
+			log.warning("No solution found");
 		return solution;
 	}
 

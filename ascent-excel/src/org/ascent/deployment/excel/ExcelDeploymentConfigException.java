@@ -1,31 +1,31 @@
 package org.ascent.deployment.excel;
+
 /******************************************************************************
- * Copyright (c) 2007 Jules White.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
+ * Copyright (c) 2007 Jules White. All rights reserved. This program and the
+ * accompanying materials are made available under the terms of the Eclipse
+ * Public License v1.0 which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *    Jules White - initial API and implementation 
+ * 
+ * Contributors: Jules White - initial API and implementation
  ****************************************************************************/
-public class ExcelDeploymentConfigException extends RuntimeException{
+@SuppressWarnings("serial")
+public class ExcelDeploymentConfigException extends RuntimeException {
 
 	private String sheet_;
 	private int row_;
 	private int column_;
-	
-	
-	
-	public ExcelDeploymentConfigException(String errormsg, String sheet, int row, int column) {
+
+	public ExcelDeploymentConfigException(String errormsg, String sheet,
+			int row, int column) {
 		super(errormsg);
 		sheet_ = sheet;
 		row_ = row;
 		column_ = column;
 	}
-	
-	public ExcelDeploymentConfigException(String errormsg, Exception e, String sheet, int row, int column) {
-		super(errormsg,e);
+
+	public ExcelDeploymentConfigException(String errormsg, Exception e,
+			String sheet, int row, int column) {
+		super(errormsg, e);
 		sheet_ = sheet;
 		row_ = row;
 		column_ = column;
@@ -73,9 +73,10 @@ public class ExcelDeploymentConfigException extends RuntimeException{
 
 	@Override
 	public String getMessage() {
-		String row = (row_ > -1)? ""+row_ : "unknown";
-		String col = (column_ > -1)? ""+column_ : "unknown";
-		return super.getMessage() + " [sheet:"+sheet_+", column:"+col+", row:"+row+"]";
+		String row = (row_ > -1) ? "" + row_ : "unknown";
+		String col = (column_ > -1) ? "" + column_ : "unknown";
+		return super.getMessage() + " [sheet:" + sheet_ + ", column:" + col
+				+ ", row:" + row + "]";
 	}
 
 }

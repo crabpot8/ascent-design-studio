@@ -11,6 +11,8 @@ import jxl.Workbook;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+import jxl.write.biff.RowsExceededException;
 
 import org.ascent.deployment.Component;
 import org.ascent.deployment.DeploymentConfig;
@@ -23,6 +25,7 @@ import org.ascent.deployment.excel.handlers.NetworkHandler;
 import org.ascent.deployment.excel.handlers.NodeHandler;
 import org.ascent.deployment.excel.handlers.ValidHostsHandler;
 import org.ascent.deployment.excel.handlers.WorksheetHandler;
+import org.ascent.hamy.ExcelComponent;
 
 /*******************************************************************************
  * Copyright (c) 2007 Jules White. All rights reserved. This program and the
@@ -68,176 +71,122 @@ public class ExcelDeploymentConfig extends WorksheetManipulator {
 		}
 	}
 
+	/**
+	 * Given a required configuration and a number of optional configuration
+	 * elements, stored as {@link ExcelComponent}s, this creates one excel file
+	 * that contains both required and all passed optional components
+	 * 
+	 * @param current
+	 * @param included
+	 * @param requiredConfig
+	 * @param result
+	 *            Where the resulting excel file should be stored
+	 * @throws Exception
+	 */
 	public void loadOptionalComponents(ExcelComponent current,
-			List<ExcelComponent> included) throws Exception {
+			List<ExcelComponent> included, File requiredConfig, File result)
+			throws Exception {
 		log.finer("");
-		Workbook main = Workbook.getWorkbook(new File("data/temp.xls"));
-		WritableWorkbook workbook = Workbook.createWorkbook(new File(
-				"data/temp2.xls"), main);
+		Workbook main = Workbook.getWorkbook(requiredConfig);
+		WritableWorkbook workbook = Workbook.createWorkbook(result, main);
 
 		WritableSheet sheet = workbook
 				.getSheet(ComponentHandler.COMPONENTS_RESOURCES_SHEET);
-
-		int rows = getRowCount(sheet);
-
-		for (int i = rows; i < rows + included.size() + 1; i++) {
-			if (i == rows) {
-				sheet.addCell(new Label(0, i, current.id));
-
-				double[] row = current.rows
-						.get(ComponentHandler.COMPONENTS_RESOURCES_SHEET);
-				for (int j = 1; j < row.length; j++)
-					sheet.addCell(new jxl.write.Number(j, i, row[j]));
-			} else {
-				ExcelComponent componentForRow = included.get(i - rows - 1);
-
-				sheet.addCell(new Label(0, i, componentForRow.id));
-				double[] row = componentForRow.rows
-						.get(ComponentHandler.COMPONENTS_RESOURCES_SHEET);
-				for (int j = 1; j < row.length; j++)
-					sheet.addCell(new jxl.write.Number(j, i, row[j]));
-			}
-		}
-
+		addOptionalComponentsToSheet(sheet,
+				ComponentHandler.COMPONENTS_RESOURCES_SHEET, current, included);
 		sheet = workbook
 				.getSheet(ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET);
-		rows = getRowCount(sheet);
-
-		for (int i = rows; i < rows + included.size() + 1; i++) {
-			if (i == rows) {
-				sheet.addCell(new Label(0, i, current.id));
-				double[] row = current.rows
-						.get(ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET);
-				for (int j = 1; j < row.length; j++)
-					sheet.addCell(new jxl.write.Number(j, i, row[j]));
-			} else {
-				ExcelComponent componentForRow = included.get(i - rows - 1);
-
-				sheet.addCell(new Label(0, i, componentForRow.id));
-				double[] row = componentForRow.rows
-						.get(ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET);
-				for (int j = 1; j < row.length; j++)
-					sheet.addCell(new jxl.write.Number(j, i, row[j]));
-			}
-		}
+		addOptionalComponentsToSheet(sheet,
+				ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET,
+				current, included);
 
 		workbook.write();
 		workbook.close();
+		main.close();
 	}
 
-	/*
-	 * public void trimOptionalComponents(File f) throws Exception { Workbook
-	 * main = Workbook.getWorkbook(f); WritableWorkbook workbook =
-	 * Workbook.createWorkbook(new File( "data/temp.xls"), main);
-	 * 
-	 * WritableSheet sheet = workbook
-	 * .getSheet(ComponentHandler.COMPONENTS_RESOURCES_SHEET);
-	 * 
-	 * int rows = getRowCount(sheet); int cols = getColumnCount(sheet);
-	 * 
-	 * for (int i = 1; i < rows; i++) { String id = getPrimaryKey(sheet, i); if
-	 * (id.startsWith("Opt")) { for (int j = 0; j < cols; j++) sheet.addCell(new
-	 * Label(j, i, "")); }
-	 * 
-	 * }
-	 * 
-	 * sheet = workbook
-	 * .getSheet(ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET); rows =
-	 * getRowCount(sheet); cols = getColumnCount(sheet);
-	 * 
-	 * for (int i = 1; i < rows; i++) { String id = getPrimaryKey(sheet, i); if
-	 * (id.startsWith("Opt")) { for (int j = 0; j < cols; j++) sheet.addCell(new
-	 * Label(j, i, "")); }
-	 * 
-	 * }
-	 * 
-	 * workbook.write(); workbook.close(); }
+	private void addOptionalComponentsToSheet(WritableSheet sheet,
+			String sheetId, ExcelComponent current,
+			List<ExcelComponent> included) throws RowsExceededException,
+			WriteException {
+		int rows = getRowCount(sheet);
+
+		// Add the current component
+		sheet.addCell(new Label(0, rows, current.getComponentName()));
+		String[] row = current.getRowForSheet(sheetId);
+		for (int j = 1; j < row.length; j++)
+			sheet.addCell(new Label(j, rows, row[j]));
+
+		for (int r = rows + 1; r < rows + included.size() + 1; r++) {
+
+			ExcelComponent component = included.get(r - rows - 1);
+
+			sheet.addCell(new Label(0, r, component.getComponentName()));
+			row = component.getRowForSheet(sheetId);
+			for (int j = 1; j < row.length; j++)
+				sheet.addCell(new Label(j, r, row[j]));
+		}
+
+	}
+
+	/**
+	 * Given an excel workbook as input, this creates data/temp.xls, which is
+	 * the exact same {@link DeploymentConfig} but with all optional components
+	 * removed. Optional components are identified by component names that start
+	 * with 'Opt'
 	 */
+	public HashMap<String, ExcelComponent> getAndTrimOptionalComponentIDs(
+			File input, File output) throws Exception {
+		log.finer("");
+		Workbook main = Workbook.getWorkbook(input);
+		WritableWorkbook workbook = Workbook.createWorkbook(output, main);
 
-	// Given an input, saves data/temp.xls without the optional components
-	public HashMap<String, ExcelComponent> getAndTrimOptionalComponentIDs(File f)
-			throws Exception {
-		Workbook main = Workbook.getWorkbook(f);
-		WritableWorkbook workbook = Workbook.createWorkbook(new File(
-				"data/temp.xls"), main);
-
+		HashMap<String, ExcelComponent> components = new HashMap<String, ExcelComponent>();
 		WritableSheet sheet = workbook
 				.getSheet(ComponentHandler.COMPONENTS_RESOURCES_SHEET);
-
-		int rows = getRowCount(sheet);
-		int cols = getColumnCount(sheet);
-		HashMap<String, ExcelComponent> components = new HashMap<String, ExcelComponent>();
-
-		for (int i = 1; i < rows; i++) {
-			String id = getPrimaryKey(sheet, i);
-			if (id.startsWith("Opt")) {
-				double[] row = new double[cols];
-				for (int j = 0; j < cols; j++) {
-					if (j != 0)
-						row[j] = Double.parseDouble(sheet.getCell(j, i)
-								.getContents());
-					sheet.addCell(new Label(j, i, ""));
-				}
-
-				ExcelComponent c = new ExcelComponent();
-				c.id = id;
-				c.rows.put(ComponentHandler.COMPONENTS_RESOURCES_SHEET, row);
-				components.put(id, c);
-			}
-		}
-
+		log.finest("Trimming " + ComponentHandler.COMPONENTS_RESOURCES_SHEET);
+		trimOptionalComponentsFromSheet(components, sheet,
+				ComponentHandler.COMPONENTS_RESOURCES_SHEET);
 		sheet = workbook
 				.getSheet(ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET);
-		rows = getRowCount(sheet);
-		cols = getColumnCount(sheet);
-
-		for (int i = 1; i < rows; i++) {
-			String id = getPrimaryKey(sheet, i);
-			if (id.startsWith("Opt")) {
-				double[] row = new double[cols];
-				for (int j = 0; j < cols; j++) {
-					if (j != 0)
-						if (sheet.getCell(j, i).getContents().equals(""))
-							row[j] = 0;
-						else
-							row[j] = Double.parseDouble(sheet.getCell(j, i)
-									.getContents().replace("%", ""));
-					sheet.addCell(new Label(j, i, ""));
-				}
-
-				components.get(id).rows.put(
-						ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET,
-						row);
-
-			}
-
-		}
+		log.finest("Trimming "
+				+ ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET);
+		trimOptionalComponentsFromSheet(components, sheet,
+				ComponentSchedulingHandler.COMPONENTS_SCHEDULING_SHEET);
 
 		workbook.write();
 		workbook.close();
+		main.close();
+
+		log.finest("Removed " + components.size() + " optional components");
 		return components;
 	}
 
-	public static class ExcelComponent {
-		String id;
+	private void trimOptionalComponentsFromSheet(
+			HashMap<String, ExcelComponent> storage, WritableSheet sheet,
+			String sheetId) throws RowsExceededException, WriteException {
+		log.finer("");
+		int rows = getRowCount(sheet);
+		int cols = getColumnCount(sheet);
 
-		// key is sheet name. Rows is all values that come after the name
-		HashMap<String, double[]> rows = new HashMap<String, double[]>();
+		for (int r = 1; r < rows; r++) {
+			String id = getPrimaryKey(sheet, r);
+			if (id.startsWith("Opt")) {
 
-		@Override
-		public boolean equals(Object o) {
-			return ((ExcelComponent) o).id.equals(id);
+				sheet.addCell(new Label(0, r, ""));
+				String[] row = new String[cols];
+				for (int c = 1; c < cols; c++) {
+					String contents = sheet.getCell(c, r).getContents();
+					row[c] = contents;
+					sheet.addCell(new Label(c, r, ""));
+				}
+
+				ExcelComponent c = storage.get(id);
+				if (c == null)
+					c = new ExcelComponent(id);
+				c.addRowForSheet(sheetId, row);
+				storage.put(id, c);
+			}
 		}
-
-		@Override
-		public int hashCode() {
-			return id.hashCode();
-		}
-
-		public String toString() {
-			return id;
-		}
-
 	}
-
 }

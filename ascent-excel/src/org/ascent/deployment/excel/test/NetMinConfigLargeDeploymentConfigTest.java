@@ -32,7 +32,7 @@ public class NetMinConfigLargeDeploymentConfigTest extends TestCase {
 	public void testWorkbookLoad(){
 		ExcelDeploymentConfig config = new ExcelDeploymentConfig();
 		try{
-			config.load(new File("../ascent-data/xls/large.xls"), new NetworkBandwidthMinimizingPlanner());
+			config.load(new File("data/problem_large.xls"), new NetworkBandwidthMinimizingPlanner());
 		}catch (Exception e) {
 			e.printStackTrace();
 			fail("An exception was thrown loading the workbook and should not have been.");
@@ -43,7 +43,7 @@ public class NetMinConfigLargeDeploymentConfigTest extends TestCase {
 		NetMinConfig problem = new NetMinConfig();
 		ExcelDeploymentConfig config = new ExcelDeploymentConfig();
 		try{
-			config.load(new File("../ascent-data/xls/large.xls"), problem);
+			config.load(new File("data/problem_large.xls"), problem);
 		}catch (Exception e) {
 			e.printStackTrace();
 			fail("An exception was thrown loading the workbook and should not have been.");
@@ -120,7 +120,7 @@ public class NetMinConfigLargeDeploymentConfigTest extends TestCase {
 		NetMinConfig problem = new NetMinConfig();
 		ExcelDeploymentConfig config = new ExcelDeploymentConfig();
 		try{
-			config.load(new File("../ascent-data/xls/large.xls"), problem);
+			config.load(new File("data/problem_large.xls"), problem);
 		}catch (Exception e) {
 			e.printStackTrace();
 			fail("An exception was thrown loading the workbook and should not have been.");

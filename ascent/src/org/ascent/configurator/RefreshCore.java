@@ -43,7 +43,9 @@ import org.ascent.expr.Expression;
  * target items and then to place constraints on how source items
  * can be mapped to targets. For example:
  * 
+ * 
  * <code>
+ * <pre>
  *  RefreshCore core = new RefreshMatrixCore();
  *	core.setSetsToMap(
  *          new String[] { "a", "b", "c" }, 
@@ -59,6 +61,7 @@ import org.ascent.expr.Expression;
  *	core.setValidTargets("a", Arrays.asList(new Object[]{"2","3"}));
  *	core.setValidTargets("c", Arrays.asList(new Object[]{"2","3"}));
  *	Map<Object, List> sol = core.nextMapping();
+ * </pre>
  * </code>
  * 
  * This example defines three source items, <code>a,b,c</code>,
