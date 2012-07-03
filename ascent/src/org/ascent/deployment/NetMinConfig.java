@@ -89,7 +89,10 @@ public class NetMinConfig extends DeploymentConfig {
 
 		boundaries_ = new int[components_.length][2];
 		for (int i = 0; i < boundaries_.length; i++) {
-			boundaries_[i] = new int[] { 0, components_.length - 1 };
+			if (components_[i].isOptional())
+				boundaries_[i] = new int[] { -1, components_.length - 1 };
+			else
+				boundaries_[i] = new int[] { 0, components_.length - 1 };
 		}
 	}
 

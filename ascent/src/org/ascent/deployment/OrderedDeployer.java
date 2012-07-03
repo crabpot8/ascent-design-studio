@@ -74,7 +74,7 @@ public class OrderedDeployer {
 				mapping.put(hn, n);
 			}
 		}
-		for (Component c : conf_.getComponents()) {
+		for (Component c : conf_.getComponents()) {	
 			SoftwareComponent cn = new SoftwareComponent(c.getLabel(), c
 					.getResources());
 			cn.setRealTimeTasks(c.getRealTimeTasks());

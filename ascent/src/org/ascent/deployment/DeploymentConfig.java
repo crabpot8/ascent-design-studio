@@ -139,7 +139,10 @@ public class DeploymentConfig extends ProblemConfigImpl {
 		if (boundaries_.length != components_.length) {
 			boundaries_ = new int[components_.length][2];
 			for (int i = 0; i < boundaries_.length; i++) {
-				boundaries_[i] = new int[] { 0, nodes_.length - 1 };
+				if (components_[i].isOptional())
+					boundaries_[i] = new int[] { -1, nodes_.length - 1 };
+				else
+					boundaries_[i] = new int[] { 0, nodes_.length - 1 };
 			}
 		}
 

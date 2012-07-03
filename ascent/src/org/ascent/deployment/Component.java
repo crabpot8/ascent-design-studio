@@ -66,6 +66,10 @@ public class Component extends ModelElement implements Schedulable {
 		optional_ = isOptional;
 	}
 
+	public boolean isOptional() {
+		return optional_;
+	}
+	
 	public int getTotalTasks() {
 		if (realTimeTasks_.size() > 0)
 			return realTimeTasks_.size();
