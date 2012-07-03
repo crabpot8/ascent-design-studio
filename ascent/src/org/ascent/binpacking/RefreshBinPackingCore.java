@@ -32,6 +32,7 @@ import org.ascent.expr.BinaryExpression;
 import org.ascent.expr.Expression;
 import org.ascent.util.ParsingUtil;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public abstract class RefreshBinPackingCore extends AbstractRefreshCore
 		implements RefreshCore, StateProvider, DependencyManager {
 
@@ -50,6 +51,7 @@ public abstract class RefreshBinPackingCore extends AbstractRefreshCore
 	public static final String MAPPED_COUNT_RESOURCE = "__mapped";
 
 	private Map<Object, Dependencies> dependencyMap_ = new HashMap<Object, Dependencies>();
+	/** Links each source to an {@link ItemState} */
 	private Map<Object, ItemState> sourceStates_ = new HashMap<Object, ItemState>();
 	private Map<Object, BinState> targetStates_ = new HashMap<Object, BinState>();
 	private Map<Object, ResourceConsumptionPolicy> resourcePolicies_ = new HashMap<Object, ResourceConsumptionPolicy>();
@@ -108,23 +110,47 @@ public abstract class RefreshBinPackingCore extends AbstractRefreshCore
 		return d;
 	}
 
-	public ItemState getSourceState(Object o) {
-		ItemState state = sourceStates_.get(o);
+	/**
+	 * Links some external representation of sources and bins to the
+	 * {@link RefreshBinPackingCore}s structure of {@link ItemState}s and
+	 * {@link BinState}.
+	 * 
+	 * @param source
+	 *            Sources are arbitrary objects, and this is asking for one of
+	 *            the sources that is used in the bin packing
+	 * @return the {@link ItemState} associated with source. A new
+	 *         {@link ItemState} is created if there is not currently one
+	 *         referencing source
+	 */
+	public ItemState getSourceState(Object source) {
+		ItemState state = sourceStates_.get(source);
 		if (state == null) {
 			state = new ItemState();
-			state.setItem(o);
+			state.setItem(source);
 			state.setAllTargets(getTargets());
-			sourceStates_.put(o, state);
+			sourceStates_.put(source, state);
 		}
 		return state;
 	}
 
-	public BinState getTargetState(Object o) {
-		BinState state = targetStates_.get(o);
+	/**
+	 * Links some external representation of sources and bins to the
+	 * {@link RefreshBinPackingCore}s structure of {@link ItemState}s and
+	 * {@link BinState}.
+	 * 
+	 * @param target
+	 *            Targets are arbitrary objects, and this is asking for one of
+	 *            the target that is used in the bin packing
+	 * @return the {@link BinState} associated with target. A new
+	 *         {@link BinState} is created if there is not currently one
+	 *         referencing target
+	 */
+	public BinState getTargetState(Object target) {
+		BinState state = targetStates_.get(target);
 		if (state == null) {
 			state = new BinState();
-			state.setItem(o);
-			targetStates_.put(o, state);
+			state.setItem(target);
+			targetStates_.put(target, state);
 		}
 		return state;
 	}

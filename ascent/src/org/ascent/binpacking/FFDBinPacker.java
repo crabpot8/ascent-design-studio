@@ -24,6 +24,7 @@ import java.util.List;
 
 import org.ascent.ReverseComparator;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class FFDBinPacker extends RefreshBinPackingCore {
 
 	public class FFDSourceComparator implements Comparator {

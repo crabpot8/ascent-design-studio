@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+@SuppressWarnings({"rawtypes","unchecked"})
 public abstract class AbstractRefreshCore implements RefreshCore {
 	
 	public class UndefinedAttributeException extends RuntimeException {
