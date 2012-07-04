@@ -32,6 +32,19 @@ import org.ascent.expr.BinaryExpression;
 import org.ascent.expr.Expression;
 import org.ascent.util.ParsingUtil;
 
+/**
+ * Represents an online bin packing as a series of steps, where each step is
+ * comprised of {@link RefreshBinPackingCore#preIterate()},
+ * {@link RefreshBinPackingCore#iterate()}, and then
+ * {@link RefreshBinPackingCore#postIterate()}. Each iteration step is composed
+ * of selecting the item that should be packed in this round (calling
+ * {@link RefreshBinPackingCore#selectSource()}) and then selecting the target
+ * (or bin) that this item will be packed into (calling
+ * {@link RefreshBinPackingCore#selectTarget(Object)}). Subclasses must
+ * implement these selection methods to create the desired behavior. 
+ * 
+ * 
+ */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public abstract class RefreshBinPackingCore extends AbstractRefreshCore
 		implements RefreshCore, StateProvider, DependencyManager {
@@ -555,8 +568,19 @@ public abstract class RefreshBinPackingCore extends AbstractRefreshCore
 		allowPartialSolutions_ = allowPartialSolutions;
 	}
 
+	/**
+	 * In the current iteration of bin packing, what source (item) are we trying
+	 * to put into a bin?
+	 * 
+	 * @return The item that is currently being packed
+	 */
 	public abstract Object selectSource();
 
+	/**
+	 * 
+	 * @param source
+	 * @return
+	 */
 	public abstract Object selectTarget(Object source);
 
 	public abstract boolean done();

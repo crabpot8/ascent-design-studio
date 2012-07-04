@@ -38,10 +38,16 @@ import org.ascent.binpacking.LeastBoundPacker;
  * @author jules
  * 
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class OrderedDeployer {
 
 	private BinPackingProblem binProblem_;
 	private DeploymentConfig conf_;
+	/**
+	 * Used to translate between {@link Component}s/{@link Node}s (both used by
+	 * deployment code) and {@link SoftwareComponent}s/{@link HardwareNode}s
+	 * (both used by bin packing code)
+	 */
 	private Map mapping_;
 	private boolean randomizeNodes_ = false;
 
@@ -56,27 +62,26 @@ public class OrderedDeployer {
 		bp.getResourcePolicies().putAll(conf_.getResourceConsumptionPolicies());
 		if (!randomizeNodes_) {
 			for (Node n : conf_.getNodes()) {
-				HardwareNode hn = new HardwareNode(n.getLabel(), n
-						.getResources());
+				HardwareNode hn = new HardwareNode(n.getLabel(),
+						n.getResources());
 				bp.getBins().add(hn);
 				mapping.put(hn, n);
 			}
-		} 
-		else {
+		} else {
 			ArrayList<Node> tmp = new ArrayList<Node>();
 			tmp.addAll(Arrays.asList(conf_.getNodes()));
-			while(tmp.size() > 0){
-				int index = Util.random(0, tmp.size()-1);
+			while (tmp.size() > 0) {
+				int index = Util.random(0, tmp.size() - 1);
 				Node n = tmp.remove(index);
-				HardwareNode hn = new HardwareNode(n.getLabel(), n
-						.getResources());
+				HardwareNode hn = new HardwareNode(n.getLabel(),
+						n.getResources());
 				bp.getBins().add(hn);
 				mapping.put(hn, n);
 			}
 		}
-		for (Component c : conf_.getComponents()) {	
-			SoftwareComponent cn = new SoftwareComponent(c.getLabel(), c
-					.getResources());
+		for (Component c : conf_.getComponents()) {
+			SoftwareComponent cn = new SoftwareComponent(c.getLabel(),
+					c.getResources());
 			cn.setRealTimeTasks(c.getRealTimeTasks());
 			bp.getItems().add(cn);
 			mapping.put(c, cn);
@@ -143,9 +148,7 @@ public class OrderedDeployer {
 		// the required order
 		for (int i = 0; i < order.getPosition().length; i++) {
 			core.getPreSelectionQueue()
-					.add(
-							mapping_.get(conf_.getComponents()[order
-									.getPosition()[i]]));
+					.add(mapping_.get(conf_.getComponents()[order.getPosition()[i]]));
 		}
 
 		// Find a packing
@@ -181,5 +184,5 @@ public class OrderedDeployer {
 	public void setRandomizeNodes(boolean randomizeNodes) {
 		randomizeNodes_ = randomizeNodes;
 	}
-	
+
 }

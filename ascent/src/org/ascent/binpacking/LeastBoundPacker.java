@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("rawtypes")
 public class LeastBoundPacker extends FFDBinPacker {
 
 	private Map<Object,Integer> validCount_ = new HashMap<Object, Integer>();

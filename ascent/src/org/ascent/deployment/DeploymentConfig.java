@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.ascent.ProblemConfig;
 import org.ascent.ProblemConfigImpl;
@@ -52,7 +53,10 @@ import org.ascent.binpacking.ValueFunction;
  * {@link NetMinConfig#getDeploymentPlan(VectorSolution)} is used.
  * 
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class DeploymentConfig extends ProblemConfigImpl {
+	private static final Logger log = Logger.getLogger(DeploymentConfig.class
+			.getName());
 
 	private ValueFunction<VectorSolution> scoringFunction_ = new ValueFunction<VectorSolution>() {
 
@@ -401,6 +405,7 @@ public class DeploymentConfig extends ProblemConfigImpl {
 	}
 
 	public VectorSolution[] createInitialSolutions(int count) {
+		log.finer("");
 		if (seedWithBinPacking_) {
 			Map mapping = new HashMap();
 			BinPackingProblem bp = new BinPackingProblem();

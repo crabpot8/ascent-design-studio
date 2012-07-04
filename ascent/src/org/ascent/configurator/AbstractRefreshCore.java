@@ -1,4 +1,4 @@
- /**************************************************************************
+/**************************************************************************
  * Copyright 2008 Jules White                                              *
  *                                                                         *
  * Licensed under the Apache License, Version 2.0 (the "License");         *
@@ -19,35 +19,30 @@ package org.ascent.configurator;
 import java.util.HashMap;
 import java.util.Map;
 
-
-@SuppressWarnings({"rawtypes","unchecked"})
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public abstract class AbstractRefreshCore implements RefreshCore {
-	
-	public class UndefinedAttributeException extends RuntimeException {
 
+	@SuppressWarnings("serial")
+	public class UndefinedAttributeException extends RuntimeException {
 		public UndefinedAttributeException(String arg0) {
 			super(arg0);
-			// TODO Auto-generated constructor stub
 		}
-
 	}
 
+	@SuppressWarnings("serial")
 	public class UnsupportedOperationException extends RuntimeException {
-
 		public UnsupportedOperationException(String arg0) {
 			super(arg0);
 		}
-
 	}
 
+	@SuppressWarnings("serial")
 	public class UnsupportedExpressionType extends RuntimeException {
-
 		public UnsupportedExpressionType(String arg0) {
 			super(arg0);
 		}
-
 	}
-	
+
 	private boolean zeroUndefinedVariables_ = true;
 
 	protected Map<Object, Map<Object, Object>> sourceVariableValuesTable_ = new HashMap<Object, Map<Object, Object>>();
@@ -77,7 +72,7 @@ public abstract class AbstractRefreshCore implements RefreshCore {
 		}
 		sourceVariableValuesTable_.put(source, valuemap);
 	}
-	
+
 	public Map getTargetVariableValues(Object target) {
 		Map vals = targetVariableValuesTable_.get(target);
 		if (vals == null) {
@@ -95,7 +90,7 @@ public abstract class AbstractRefreshCore implements RefreshCore {
 		}
 		return vals;
 	}
-	
+
 	/**
 	 * @turn the zeroUndefinedVariables
 	 */
@@ -110,11 +105,11 @@ public abstract class AbstractRefreshCore implements RefreshCore {
 	public void setZeroUndefinedVariables(boolean zeroUndefinedVariables) {
 		zeroUndefinedVariables_ = zeroUndefinedVariables;
 	}
-	
-	public void clearVariableTables(){
+
+	public void clearVariableTables() {
 		sourceVariableValuesTable_.clear();
 		targetVariableValuesTable_.clear();
-		sourceVariableValuesTable_ = new HashMap<Object, Map<Object,Object>>();
-		targetVariableValuesTable_ = new HashMap<Object, Map<Object,Object>>();
+		sourceVariableValuesTable_ = new HashMap<Object, Map<Object, Object>>();
+		targetVariableValuesTable_ = new HashMap<Object, Map<Object, Object>>();
 	}
 }

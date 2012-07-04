@@ -23,6 +23,7 @@ import java.util.Map;
 
 import org.ascent.configurator.UnsolvableException;
 
+@SuppressWarnings({"rawtypes","unchecked"})
 public class ItemState extends AbstractState {
 	
 	private Map attributes_;

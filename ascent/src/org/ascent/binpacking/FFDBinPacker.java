@@ -24,7 +24,16 @@ import java.util.List;
 
 import org.ascent.ReverseComparator;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
+/**
+ * 
+ * Implements a standard first-fit bin packing by ordering both bins and items
+ * by weight. Allows the default first-fit sorting to be overridden by setting
+ * both the pre-selection (for items) and pre-target (for bins) ordering. These
+ * 'pre' options are packed first, and then remaining bins/items are processed
+ * in the standard first-fit style.
+ * 
+ */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class FFDBinPacker extends RefreshBinPackingCore {
 
 	public class FFDSourceComparator implements Comparator {
@@ -68,13 +77,13 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 
 	};
 
-	
 	private int current_ = 0;
 	private ArrayList queue_;
 	private ArrayList preSelectionQueue_ = new ArrayList();
 	private ArrayList preTargetedQueue_ = new ArrayList();
 	private Comparator itemSortingStrategy_ = new FFDSourceComparator();
-	private Comparator binSortingStrategy_ = new ReverseComparator(new FFDTargetComparator());
+	private Comparator binSortingStrategy_ = new ReverseComparator(
+			new FFDTargetComparator());
 	private WeightUpdateStrategy weightingStrategy_;
 
 	public FFDBinPacker() {
@@ -84,18 +93,16 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 	public FFDBinPacker(BinPackingProblem p) {
 		super(p);
 	}
-	
-	
 
 	@Override
 	public void configure(BinPackingProblem p) {
 		super.configure(p);
-		
-		//This takes care of any items that are specified
-		//to be preallocated to bins
+
+		// This takes care of any items that are specified
+		// to be preallocated to bins
 		for (Item it : p.getPreAllocations().keySet()) {
 			Bin bin = p.getPreAllocations().get(it);
-			
+
 			preSelectionQueue_.add(it);
 			preTargetedQueue_.add(bin);
 		}
@@ -123,13 +130,14 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 		if (queue_ == null)
 			init();
 
-		while (preSelectionQueue_.size() > 0){
-			Object src = preSelectionQueue_.remove(preSelectionQueue_.size() - 1);
-			if(queue_.contains(src)){
+		while (preSelectionQueue_.size() > 0) {
+			Object src = preSelectionQueue_
+					.remove(preSelectionQueue_.size() - 1);
+			if (queue_.contains(src)) {
 				return src;
 			}
 		}
-		
+
 		return nextSource();
 	}
 
@@ -155,23 +163,23 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 			updateItemWeight(getTargetState(o));
 
 		sortItems();
-		
+
 		current_ = queue_.size() - 1;
 
 		sortBins();
 		// Collections.reverse(getTargets());
 	}
-	
-	public void sortItems(){
-		if(itemSortingStrategy_ != null && queue_ != null)
+
+	public void sortItems() {
+		if (itemSortingStrategy_ != null && queue_ != null)
 			Collections.sort(queue_, itemSortingStrategy_);
 	}
 
-	public void sortBins(){
-		if(binSortingStrategy_ != null)
+	public void sortBins() {
+		if (binSortingStrategy_ != null)
 			Collections.sort(getTargets(), binSortingStrategy_);
 	}
-	
+
 	public void updateTargetSize(Object o) {
 	}
 
@@ -189,11 +197,10 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 	}
 
 	public void updateWeight(ItemState st) {
-		if(weightingStrategy_ == null){
-		updateItemWeight(st, st.getSizeWithDependencies(), (st.getRequired()
-				.size() * st.getRequired().size()));
-		}
-		else {
+		if (weightingStrategy_ == null) {
+			updateItemWeight(st, st.getSizeWithDependencies(), (st
+					.getRequired().size() * st.getRequired().size()));
+		} else {
 			st.setWeight(weightingStrategy_.getWeight(st));
 		}
 	}
@@ -202,14 +209,11 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 	public Object selectTarget(Object source) {
 		Object target = null;
 		ItemState ss = getSourceState(source);
-		boolean pretarget = false;
 
 		if (preTargetedQueue_.size() > 0) {
 			target = preTargetedQueue_.remove(preTargetedQueue_.size() - 1);
-			pretarget = true;
 		} else {
 
-			Dependencies deps = getDependencies(source);
 			List valid = (ss.getValid() == null) ? getTargets() : ss.getValid();
 
 			intersectValidTargets(valid, getRequired(source));
@@ -235,13 +239,10 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 	public Object selectTarget(ItemState ss, List valid) {
 		for (Object t : valid) {
 			BinState ts = getTargetState(t);
-			if (willFit(ss, ts)) {
+			if (willFit(ss, ts))
 				return t;
-			}
-			else {
-				boolean a = true;
-			}
 		}
+
 		return null;
 	}
 
@@ -259,9 +260,9 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 		}
 		return all;
 	}
-	
+
 	public List getExcluded(Object src) {
-		return getExcluded(Arrays.asList(new Object[]{src}));
+		return getExcluded(Arrays.asList(new Object[] { src }));
 	}
 
 	public List getExcluded(List srcs) {
@@ -386,7 +387,6 @@ public class FFDBinPacker extends RefreshBinPackingCore {
 		preTargetedQueue_ = preTargetedQueue;
 	}
 
-	
 	/*
 	 * public List findValidTargets(Object src, SourceState ss, Dependencies
 	 * deps) { RefreshVectorCore core = new RefreshVectorCore(); List valid =
