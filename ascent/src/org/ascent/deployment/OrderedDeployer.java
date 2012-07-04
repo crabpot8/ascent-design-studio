@@ -147,6 +147,11 @@ public class OrderedDeployer {
 		// Force the bin packer to select source items in
 		// the required order
 		for (int i = 0; i < order.getPosition().length; i++) {
+			// If this component is not scheduled for deployment, then do not
+			// hand it to the bin packer
+			if (order.getPosition()[i] == -1)
+				continue;
+
 			core.getPreSelectionQueue()
 					.add(mapping_.get(conf_.getComponents()[order.getPosition()[i]]));
 		}
